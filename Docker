@@ -59,3 +59,111 @@ docker pull username/imagename  (use cntrl+c when it stops)
 docker run -it username/imagename (use cntrl+c when it stops)
 
 docker run -d -p 8085:80 username/imagename  
+
+
+2) login validation web app
+Login Form Validation
+<html>
+<head></head>
+<body>
+    <h2>Login</h2>
+    <input id="username" placeholder="Username"><br>
+    <input id="password" placeholder="Password"><br>
+    <button onclick="if(document.getElementById('username').value==='admin' && document.getElementById('password').value==='password123') alert('Success'); else alert('Invalid');">Login</button>
+</body>
+</html>
+
+
+
+
+3) Display student details using CSS
+
+
+
+Student Details
+<html>
+<head>
+<style>
+.Name{color:red;text-align:center;}
+.Branch{color:blue;text-align:center;}
+.Rollno{color:yellow;text-align:center;}
+</style>
+</head>
+<body>
+<div class="Name">Ram</div>
+<div class ="Branch">CSE</div>
+<div class="Rollno">001</div>
+</body>
+</html>
+
+
+python docker  :
+
+
+everything is same just change docker file  (Hello.py file name)
+
+FROM python: latest
+WORKDIR /pythonapp
+copy ./Hello.py .
+CMD ["python", "Hello.py"]
+
+1) print hello program
+ 
+  print("Hello from Python. \n Welcome to Devops Lab")
+ 
+2)
+Student Details
+print("Name:Ramu \nRollno:001 \nDept:CSE")
+print("Name:Raju \nRollno:002 \nDept:EEE")
+print("Name:Ramesh \nRollno:003 \nDept:ECE")
+
+3)  Sum and Avg of 10 no
+n = 10
+sum = (n/2)*(1+n)
+print("sum",sum)
+print("avg",sum/n)
+
+
+java docker : (java filename is Hello.java)
+
+FROM openjdk:11
+WORKDIR /app
+COPY ./Hello.java .
+RUN javac Hello.java
+CMD ["java", "Hello"]
+
+1) print hello world
+
+  class Hello
+{
+public static void main(String args[])
+{
+System.out.println("Hello Docker from java");
+}
+}
+
+2) Student Details
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Name:Ramu \nRollno:001 \nDept:CSE");
+        System.out.println("Name:Raju \nRollno:002 \nDept:EEE");
+        System.out.println("Name:Ramesh \nRollno:003 \nDept:ECE");
+    }
+}
+
+
+
+
+3)   Sum and avg of first 10 no
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n= 10;
+        float sum = (n/2)*(1+n);
+        System.out.println("sum:"+sum);
+        System.out.println("avg:"+sum/n);
+    }
+}
+
