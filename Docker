@@ -1,0 +1,61 @@
+Docker insatllation steps :
+
+1)create a new empty folder name as docker
+
+2) open terminal  start typing this commands
+
+$ sudo apt-get update
+$ sudo apt-get install docker.io
+$ docker –version
+
+switch to super user for that : sudo su
+
+web application :
+ 
+  1) Display dept name in different header files
+   
+   create two files
+   1)index.html
+   
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Department Headers</title>
+</head>
+<body>
+  <h1>Computer Science Department</h1>
+  <h2>Computer Science Department</h2>
+  <h3>Computer Science Department</h3>
+  <h4>Computer Science Department</h4>
+  <h5>Computer Science Department</h5>
+  <h6>Computer Science Department</h6>
+</body>
+</html>
+
+   
+   2) Dockerfile
+   
+ FROM nginx:latest
+WORKDIR /usr/share/nginx/html
+COPY ./index.html .
+EXPOSE 80
+
+
+open terminal in that folder now type these commands :
+
+docker build -t imagename . (change image name as image111 your wish )
+
+docker run -it imagename
+
+docker login -u username
+enter password of docker account
+
+docker tag imagename username/imagename  
+
+docker push username/imagename (use cntrl+c when it stops)
+
+docker pull username/imagename  (use cntrl+c when it stops)
+
+docker run -it username/imagename (use cntrl+c when it stops)
+
+docker run -d -p 8085:80 username/imagename  
